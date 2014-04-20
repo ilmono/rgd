@@ -23,5 +23,10 @@
 	        cssEase: 'linear'
 	    });
 
+		$('#btn-borrar').click(function(){
+			$('.input-text').val('');
+			$('#form-consulta').val('');
+			return false;
+		});
 	});
 })(jQuery);

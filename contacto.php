@@ -1,3 +1,20 @@
+<?php
+if(isset($_POST) && !empty($_POST)){
+	echo '<pre>';
+	print_r($_POST);
+	echo '</pre>';
+	$para = 'mgrusconi@gmail.com';
+	$titulo = 'Consulta Web - RGD';
+	$mensaje = 'Nombre: ' . $_POST['nombre'] . "\r\n";
+	$mensaje .= 'Telefono: ' . $_POST['telefono'] . "\r\n";
+	$mensaje .= 'Mail: ' . $_POST['mail'] . "\r\n";
+	$mensaje .= 'Consulta: ' . $_POST['consulta'];
+	$cabeceras = 'From: info@rgdobrasymontajes.com.ar' . "\r\n" .
+	    'Reply-To: ' . $_POST['mail'] . "\r\n";
+
+	mail($para, $titulo, $mensaje, $cabeceras);
+}
+?>
 <html>
 	<head>
 		<title>RGD - Grupo Cremonesi</title>
@@ -39,41 +56,62 @@
 				</div>
 				<div id="content-page">
 					<div class="title">
-						<h1>OBRAS Y MONTAJES</h1>
+						<h1>CONTACTO</h1>
 					</div>
 					<div class="contenido contenido-obras">
 						<div id="content-left">
-							<h2 class="subtitle subtitle-obras">
-								Calidad en Construcci&oacute;n confianza <br />
-								en los tiempos, <strong>satisfacci&oacute;n de <br />
-								llave en mano.</strong>
-							</h2>
-							<ul id="nav">
-								<li><a id="acordion-item-1" class="accordion-item" href="#">&diams; Proyecto</a>
-									<div class="acordion-text">
-										Nuestro equipo de profesionales de primera línea brinda asesoramiento integral en todas las etapas del proceso constructivo (desde el anteproyecto, el proyecto, la documentación ejecutiva y los planos conforme a obra) y en el diseño de espacios, utilizando para ello renders 3D, generando así definición en todos los detalles de las obras.
-									</div>
-								</li>
-								<li><a class="accordion-item" href="#">&diams; Direcci&oacute;n</a>
-									<div class="acordion-text">
-										Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-									</div>
-								</li>
-								<li><a class="accordion-item" href="#">&diams; Construcci&oacute;n</a>
-									<div class="acordion-text">
-										Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
-									</div>
-								</li>
-							</ul>
-							<div class="destacado">
-								<p>
-									En RGD Contamos también con maquinarias y talleres propios de herrería y carpintería para respetar con los plazos pautados de obra y también reducir los costos. 
-								</p>
-							</div>
-							<img class="iconos-obras" src="images/iconos-obras.png" alt="Obras y Montajes" title="Obras y Montajes">
+							<img class="iconos-obras" src="images/consulta.png" alt="Consulta" title="Consulta">
+							<?php if(isset($_POST) && empty($_POST)): ?>
+								<form method="POST">
+									<table>
+										<tr>
+											<td colspan="2">
+												Nombre <br />
+												<input required type="text" class="input-text" name="nombre" id="consulta-nombre" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												Teléfono <br />
+												<input required type="text" class="input-text" name="telefono" id="consulta-telefono" pattern="[0-9]+"/>
+											</td>
+											<td>
+												Mail <br />
+												<input required type="email" class="input-text" name="mail" id="consulta-mail" />
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												Consulta <br />
+												<textarea required id="form-consulta" name="consulta"></textarea>
+											</td>
+										</tr>
+									</table>
+									<button id="btn-borrar">Borrar</button>
+									<input type="submit" value="Enviar" id="btn-enviar" />
+								</form>
+								<?php else: ?>
+									<p>
+										Mensaje enviado correctamente.
+									</p>
+								<?php endif; ?>
 						</div>
 						<div id="content-right">
-							<img class="img-obras" src="images/img-obras.png" alt="Obras y Montajes" title="Obras y Montajes">
+							<img class="ubicacion" src="images/ubicacion.png" alt="Ubicacion" title="Ubicacion">
+							<p>
+								<b>Grupo Cremonesi</b> <br />
+								Av. Gaona 4526 (1702) Ciudadela.<br />
+								Bs. As. Argentina <br />
+								Tel./Fax: (54-11) 4653-5444 / 4052 <br />
+								<a href="mailto:info@rgdobrasymontajes.com.ar" target="_top">info@rgdobrasymontajes.com.ar</a>
+							</p>
+							<iframe 
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.771924459494!2d-58.553104399999995!3d-34.635203499999946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc80795cdd63d%3A0xa0750be82377e527!2sAv+Gaona+4526!5e0!3m2!1ses!2sar!4v1398023123431" 
+								width="375" 
+								height="235" 
+								frameborder="0" 
+								style="border:0">
+							</iframe>
 						</div>
 					</div>
 				</div>
