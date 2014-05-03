@@ -6,3 +6,11 @@
 	font-family: museo-slab-b;
 	src:url(../fuentes/museo-slab-300.ttf);
 }
+@font-face{
+	font-family: museo-sans;
+	src:url(../fuentes/museo-sans-300.ttf);
+}
+@font-face{
+	font-family: museo-sans-b;
+	src:url(../fuentes/museo-sans-900.ttf);
+}

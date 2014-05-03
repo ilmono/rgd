@@ -1,9 +1,6 @@
 <?php
 if(isset($_POST) && !empty($_POST)){
-	echo '<pre>';
-	print_r($_POST);
-	echo '</pre>';
-	$para = 'mgrusconi@gmail.com';
+	$para = 'info@massanet.com.ar';
 	$titulo = 'Consulta Web - RGD';
 	$mensaje = 'Nombre: ' . $_POST['nombre'] . "\r\n";
 	$mensaje .= 'Telefono: ' . $_POST['telefono'] . "\r\n";
@@ -39,13 +36,13 @@ if(isset($_POST) && !empty($_POST)){
 							<a href="somos.html" title="Somos">SOMOS</a>
 						</li>
 						<li class="item-menu">
-							<a href="obras.html" title="Obras y Montajes" class="active">OBRAS Y MONTAJES</a>
+							<a href="obras.html" title="Obras y Montajes">OBRAS Y MONTAJES</a>
 						</li>
 						<li class="item-menu">
 							<a href="arquitectura.html" title="Arq. Comercial">ARQ. COMERCIAL</a>
 						</li>
 						<li class="item-menu">
-							<a href="contacto.html" title="Contacto">CONTACTO</a>
+							<a href="contacto.php" title="Contacto" class="active">CONTACTO</a>
 						</li>
 						<li id="logo-home">
 							<a href="index.html" title="Contacto">
@@ -58,37 +55,39 @@ if(isset($_POST) && !empty($_POST)){
 					<div class="title">
 						<h1>CONTACTO</h1>
 					</div>
-					<div class="contenido contenido-obras">
+					<div class="contenido contenido-form">
 						<div id="content-left">
 							<img class="iconos-obras" src="images/consulta.png" alt="Consulta" title="Consulta">
 							<?php if(isset($_POST) && empty($_POST)): ?>
 								<form method="POST">
-									<table>
+									<table id="formulario">
 										<tr>
 											<td colspan="2">
-												Nombre <br />
+												<label class="form-text-nombre">Nombre <br /></label> 
 												<input required type="text" class="input-text" name="nombre" id="consulta-nombre" />
 											</td>
 										</tr>
 										<tr>
 											<td>
-												Teléfono <br />
+												<label class="form-text-telefono">Tel&eacute;fono <br /></label> 
 												<input required type="text" class="input-text" name="telefono" id="consulta-telefono" pattern="[0-9]+"/>
 											</td>
 											<td>
-												Mail <br />
+												<label class="form-text-mail">Mail <br /></label> 
 												<input required type="email" class="input-text" name="mail" id="consulta-mail" />
 											</td>
 										</tr>
 										<tr>
 											<td colspan="2">
-												Consulta <br />
+												<label class="form-text-consulta"> Consulta <br /></label>
 												<textarea required id="form-consulta" name="consulta"></textarea>
 											</td>
 										</tr>
 									</table>
-									<button id="btn-borrar">Borrar</button>
-									<input type="submit" value="Enviar" id="btn-enviar" />
+									<div class="wrapper-buttons">
+										<button id="btn-borrar">Borrar</button>
+										<input type="submit" value="Enviar" id="btn-enviar" />
+									</div>
 								</form>
 								<?php else: ?>
 									<p>
@@ -98,7 +97,7 @@ if(isset($_POST) && !empty($_POST)){
 						</div>
 						<div id="content-right">
 							<img class="ubicacion" src="images/ubicacion.png" alt="Ubicacion" title="Ubicacion">
-							<p>
+							<p class="texto-ubicacion">
 								<b>Grupo Cremonesi</b> <br />
 								Av. Gaona 4526 (1702) Ciudadela.<br />
 								Bs. As. Argentina <br />
@@ -130,7 +129,7 @@ if(isset($_POST) && !empty($_POST)){
 						</li>
 						<li>&bull;</li>
 						<li class="footer-item-menu">
-							<a href="contacto.html" title="Contacto">Contacto</a>
+							<a href="contacto.php" title="Contacto">Contacto</a>
 						</li>					
 					</ul>
 					<div id="container-rule">
