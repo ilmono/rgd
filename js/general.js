@@ -1,4 +1,5 @@
 (function ($) {
+
 	$(document).ready(function() {
 		
 		$('.acordion-text').hide();
@@ -23,10 +24,21 @@
 	        cssEase: 'linear'
 	    });
 
+		setInterval(function(){
+			var $active = $('#cycler .active');
+			var $next = ($active.next().length > 0) ? $active.next() : $('#cycler img:first');
+			$next.css('z-index',2);
+			$active.fadeOut(1500,function(){
+				$active.css('z-index',1).show().removeClass('active');
+				$next.css('z-index',3).addClass('active');
+			});
+		}, 4000);
+
 		$('#btn-borrar').click(function(){
 			$('.input-text').val('');
 			$('#form-consulta').val('');
 			return false;
 		});
 	});
+
 })(jQuery);

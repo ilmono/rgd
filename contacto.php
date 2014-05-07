@@ -14,10 +14,11 @@ if(isset($_POST) && !empty($_POST)){
 ?>
 <html>
 	<head>
-		<title>RGD - Grupo Cremonesi</title>
+		<title>CONTACTO | RGD - Grupo Cremonesi</title>
 		<link href="css/estilos.css" type="text/css" rel="stylesheet">
 		<link href="css/fuentes.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+		<link rel="shortcut icon" href="favicon.ico" />
 
 		<script type='text/javascript' src='js/jquery-1.11.0.min.js'></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -31,7 +32,11 @@ if(isset($_POST) && !empty($_POST)){
 			<div id="content">
 				<div id="header">
 					<ul id="menu">
-						<li id="logo-rgd"><img class="logos" src="images/logo.png" alt="Logo RGD" title="RGD - Grupo Cremonesi"></li>
+						<li id="logo-rgd">
+							<a href="index.html" title="RGD - Grupo Cremonesi">
+								<img class="logos" src="images/logo.png" alt="Logo RGD" title="RGD - Grupo Cremonesi">
+							</a>
+						</li>
 						<li class="item-menu">
 							<a href="somos.html" title="Somos">SOMOS</a>
 						</li>
@@ -45,7 +50,7 @@ if(isset($_POST) && !empty($_POST)){
 							<a href="contacto.php" title="Contacto" class="active">CONTACTO</a>
 						</li>
 						<li id="logo-home">
-							<a href="index.html" title="Contacto">
+							<a href="index.html" title="RGD - Grupo Cremonesi">
 								<img class="logos" src="images/home.png" alt="Logo RGD" title="RGD - Grupo Cremonesi">
 							</a>
 						</li>
@@ -58,7 +63,6 @@ if(isset($_POST) && !empty($_POST)){
 					<div class="contenido contenido-form">
 						<div id="content-left">
 							<img class="iconos-obras" src="images/consulta.png" alt="Consulta" title="Consulta">
-							<?php if(isset($_POST) && empty($_POST)): ?>
 								<form method="POST">
 									<table id="formulario">
 										<tr>
@@ -85,15 +89,10 @@ if(isset($_POST) && !empty($_POST)){
 										</tr>
 									</table>
 									<div class="wrapper-buttons">
-										<button id="btn-borrar">Borrar</button>
-										<input type="submit" value="Enviar" id="btn-enviar" />
+										<button id="btn-borrar" class="btn-contacto">BORRAR</button>
+										<input type="submit" value="ENVIAR" id="btn-enviar" class="btn-contacto" />
 									</div>
 								</form>
-								<?php else: ?>
-									<p>
-										Mensaje enviado correctamente.
-									</p>
-								<?php endif; ?>
 						</div>
 						<div id="content-right">
 							<img class="ubicacion" src="images/ubicacion.png" alt="Ubicacion" title="Ubicacion">
@@ -142,6 +141,11 @@ if(isset($_POST) && !empty($_POST)){
 					</p>
 					<img id="logo-cpa" src="images/logo-cpa.png" alt="Logo Grupo Cremonesi" title="Logo Grupo Cremonesi">
 				</div>
+				<?php if(isset($_POST) && !empty($_POST)): ?>
+					<script type="text/javascript">
+						alert("Mensaje enviado correctamente.");
+					</script>
+				<?php endif; ?>
 			</div>
 		</div>
 	</body>
